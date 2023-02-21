@@ -1,2 +1,3 @@
 Email,//*[@id='email'],,AFXLOGIN
-Password,//*[@name='passwordControl'],,AFXLOGIN
+Password,//*[@ng-reflect-name='passwordControl'],,AFXLOGIN
+LoginButton,//*[@id='login'],,AFXLOGIN

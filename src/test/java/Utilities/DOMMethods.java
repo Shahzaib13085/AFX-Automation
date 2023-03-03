@@ -1,9 +1,7 @@
 package Utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -52,8 +50,14 @@ public class DOMMethods {
         String elementXpath = DOMElements.getXpath(elemName, pageName);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
         WebElement element = driver.findElement(By.xpath(elementXpath));
-        element.sendKeys(text);
-        System.out.println(elementXpath);
+        try{
+            element.sendKeys(text);
+        }catch (ElementClickInterceptedException r)
+        {
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("document.getElementById('"+element+"').value='"+text+"';");
+        }
+
     }
 
     public void clickbuttonDOM(String elemName,String pageName)
@@ -61,7 +65,14 @@ public class DOMMethods {
         wait = new WebDriverWait(driver, 50);
         String elementXpath = DOMElements.getXpath(elemName, pageName);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementXpath)));
         WebElement element = driver.findElement(By.xpath(elementXpath));
-        element.click();
+        try{
+            element.click();
+        }catch (ElementClickInterceptedException r)
+        {
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("arguments[0].click()", element);
+        }
     }
 }

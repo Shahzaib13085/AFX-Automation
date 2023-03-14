@@ -119,4 +119,14 @@ public class DOMMethods {
             element.sendKeys(Keys.ENTER);
         }
     }
+    public void assertanymessage(String message)
+    {
+        assertTrue(text.contains(message));
+//        try {
+//            assertTrue(text.contains(message));
+//            System.out.println("Asserted");
+//        } catch (AssertionError e) {
+//            System.out.println("Not Asserted");
+//        }
+    }
 }

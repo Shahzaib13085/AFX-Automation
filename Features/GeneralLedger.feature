@@ -21,6 +21,8 @@ Feature: General Ledger
     And User clicks "Viewdetails"
     And User clicks "PostJournalbutton"
     And User clicks "OkPostJournal"
+    And User gets data from "PostJournalToast"
+    And User assert toast message "<Message>" from "PostJournalToast"
     Examples:
-      | browser | AFXUsername | AFXPassword | AccountNumberOne | AccountNumberTwo |
-      | Chrome  | IRFAN       | PAssword1   | 1101111001 | 1101111002             |
+      | browser | AFXUsername | AFXPassword | AccountNumberOne | AccountNumberTwo | Message |
+      | Chrome  | IRFAN       | PAssword1   | 1101111001 | 1101111002             | Journal saved successfully! |

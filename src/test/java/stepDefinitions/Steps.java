@@ -54,14 +54,19 @@ public class Steps {
     }
 
 
-    @When("User gets data from {string}")
+    @And("User gets data from {string}")
     public void user_gets_data_from(String string) {
       text  =  DomMethods.getdatafromlocator(string,"AFXLOGIN");
     }
 
-    @Given("User sends data into {string} input field")
+    @And("User sends data into {string} input field")
     public void user_sends_data_into_input_field(String string) throws InterruptedException {
         DomMethods.sendtext(string,"AFXLOGIN");
+    }
+
+    @And("User assert toast message {string} from {string}")
+    public void user_assert_toast_message_from(String string, String string2) {
+        DomMethods.assertanymessage(string);
     }
 
 

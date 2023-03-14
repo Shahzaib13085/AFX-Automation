@@ -42,3 +42,4 @@ Threedots,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav
 Viewdetails,/html/body/div[3]/div[2]/div/div/div/button[1],,AFXLOGIN
 PostJournalbutton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal/div/mat-card/div[2]/div/button[4],,AFXLOGIN
 OkPostJournal,/html/body/div[3]/div[2]/div/mat-dialog-container/base-dialog/mat-dialog-actions/button[2],,AFXLOGIN
+PostJournalToast,/html/body/div[4]/div,,AFXLOGIN

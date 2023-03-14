@@ -1,15 +1,42 @@
 Feature: Alfardan Login
 
-  Scenario Outline: User Login
-#    Given User Launch "<browser>" Browser
-#    When User opens URL
+  Scenario Outline: Cashier apply for LC transfer under foreign currency
+    Given User Launch "<browser>" Browser
+    When User opens URL
 #    And User should be navigated to "AFXLOGIN"
-    And User enters "CONFIG_AFXUsername" in "Email" field
-#    And User enters AFXUsername in "Email" field
-#    And User enters "CONFIG_AFXPassword" in "Password" field
-#      And User clicks "Sign in"
-#      And User clicks "Yes"
-
+    And User enters "<AFXUsername>" in "Email" field
+    And User enters "<AFXPassword>" in "Password" field
+    And User clicks "LoginButton"
+    And User clicks "Remittance"
+    And User clicks "ForeignCurrency"
+    And User clicks "Lctransfer"
+    And User clicks "Lctransferbutton"
+    And User clicks "transfertypedropdown"
+    And User clicks "transfertypedropdownoption"
+    And User clicks "cashiernamedropdown"
+    And User clicks "cashiernamedropdownoption"
+    And User enters "<Amount>" in "Amountinput" field
+    And User clicks "LCtransfersubmitbutton"
     Examples:
-      | browser |
-      | Chrome  |
+      | browser | AFXUsername | AFXPassword | Amount |
+      | Chrome  | IRFAN       | PAssword1   | 11     |
+
+  Scenario Outline: User creation under user management
+    Given User clicks "SetUpTab"
+    And User clicks "Usermanagement"
+    And User clicks "AddUserbutton"
+    And User enters "<FirstName>" in "UserfirstName" field
+    And User enters "<ShortName>" in "UserShortName" field
+    And User clicks on "phonecodedropdown" and wait for "phonecodeselection" to appear
+    And User enters "<PhoneCode>" in "phonecodesearch" field
+    And User clicks "phonecodeselection"
+    And User enters "<PhoneCode>" in "phonecodesearch" field
+    And User enters "<Email>" in "emailinput" field
+    And User clicks "genderdropdown"
+    And User clicks "genderselection"
+    And User clicks "nationalitydropdown"
+    And User enters "<Nationality>" in "nationalitysearchinput" field
+    And User clicks "phonecodeselection"
+    Examples:
+      | browser | ShortName | FirstName | PhoneCode | Email | Nationality |
+      | Chrome  | User       | Anonymous   | 92     | any@mailinator.com | Pakistan |

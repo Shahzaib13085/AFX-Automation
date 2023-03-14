@@ -14,8 +14,9 @@ public class baseclassdriver {
         WebDriverManager.chromedriver().setup();
         if (driver == null){
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("headless");
-            driver = new ChromeDriver();
+            options.addArguments("--remote-allow-origins=*");
+
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
         }
         return driver;

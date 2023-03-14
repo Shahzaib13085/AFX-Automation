@@ -15,6 +15,7 @@ public class Steps {
     baseclassdriver sgp;
     public WebDriver driver = sgp.getDriver();
     DOMMethods DomMethods = new DOMMethods(driver);
+    String text;
 
     @Given("User Launch {string} Browser")
     public void user_launch_browser(String browser) throws IOException {
@@ -33,21 +34,36 @@ public class Steps {
 
 
     @When("User enters {string} in {string} field")
-    public void user_enters_in_field(String string, String string2) throws InterruptedException, IOException {
+    public void     user_enters_in_field(String string, String string2) throws InterruptedException, IOException {
         DomMethods.enterText(string, string2, "AFXLOGIN");
-        System.out.println(string);
     }
 
     @And("User enters AFXUsername in {string} field")
     public void user_enters_afx_username_in_field(String string) throws InterruptedException {
         DomMethods.enterText("IRFAN1", string, "AFXLOGIN");
-        System.out.println(string);
     }
 
     @And("User clicks {string}")
     public void user_clicks(String button) {
         DomMethods.clickbuttonDOM(button,"AFXLOGIN");
     }
+
+    @And("User clicks on {string} and wait for {string} to appear")
+    public void user_clicks_on_and_wait_for_to_appear(String string, String string2) {
+        DomMethods.clickondropdown(string,"AFXLOGIN", string2);
+    }
+
+
+    @When("User gets data from {string}")
+    public void user_gets_data_from(String string) {
+      text  =  DomMethods.getdatafromlocator(string,"AFXLOGIN");
+    }
+
+    @Given("User sends data into {string} input field")
+    public void user_sends_data_into_input_field(String string) throws InterruptedException {
+        DomMethods.sendtext(string,"AFXLOGIN");
+    }
+
 
 
 

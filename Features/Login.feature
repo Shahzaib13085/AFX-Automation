@@ -21,12 +21,22 @@ Feature: Alfardan Login
       | browser | AFXUsername | AFXPassword | Amount |
       | Chrome  | IRFAN       | PAssword1   | 11     |
 
-#  Scenario Outline: User creation under user management
-#    Given User clicks "SetUpTab"
-#    And User clicks "Usermanagement"
-#    And User clicks "AddUserbutton"
-#    And User enters "<FirstName>" in "UserfirstName" field
-#    And User enters "<ShortName>" in "UserShortName" field
-#    Examples:
-#      | browser | ShortName | FirstName | Amount |
-#      | Chrome  | User       | Anonymous   | 11     |
+  Scenario Outline: User creation under user management
+    Given User clicks "SetUpTab"
+    And User clicks "Usermanagement"
+    And User clicks "AddUserbutton"
+    And User enters "<FirstName>" in "UserfirstName" field
+    And User enters "<ShortName>" in "UserShortName" field
+    And User clicks on "phonecodedropdown" and wait for "phonecodeselection" to appear
+    And User enters "<PhoneCode>" in "phonecodesearch" field
+    And User clicks "phonecodeselection"
+    And User enters "<PhoneCode>" in "phonecodesearch" field
+    And User enters "<Email>" in "emailinput" field
+    And User clicks "genderdropdown"
+    And User clicks "genderselection"
+    And User clicks "nationalitydropdown"
+    And User enters "<Nationality>" in "nationalitysearchinput" field
+    And User clicks "phonecodeselection"
+    Examples:
+      | browser | ShortName | FirstName | PhoneCode | Email | Nationality |
+      | Chrome  | User       | Anonymous   | 92     | any@mailinator.com | Pakistan |

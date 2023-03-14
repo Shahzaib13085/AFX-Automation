@@ -1,14 +1,9 @@
 package Utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import stepDefinitions.Steps;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -18,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class DOMMethods {
     baseclassdriver sgp;
     public WebDriver driver = sgp.getDriver();
-
+    String text;
     WebDriverWait wait;
     String valueconfig;
     public DOMMethods(WebDriver driver) {
@@ -51,9 +46,11 @@ public class DOMMethods {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
         WebElement element = driver.findElement(By.xpath(elementXpath));
         try{
+            Thread.sleep(1500);
             element.sendKeys(text);
         }catch (ElementClickInterceptedException r)
         {
+            Thread.sleep(1500);
             JavascriptExecutor js = (JavascriptExecutor)driver;
             js.executeScript("document.getElementById('"+element+"').value='"+text+"';");
         }
@@ -73,6 +70,53 @@ public class DOMMethods {
         {
             JavascriptExecutor js = (JavascriptExecutor)driver;
             js.executeScript("arguments[0].click()", element);
+        }
+    }
+
+    public void clickondropdown(String elemName,String pageName, String firstoption)
+    {
+        wait = new WebDriverWait(driver, 50);
+        String elementXpath = DOMElements.getXpath(elemName, pageName);
+        String optionxpath = DOMElements.getXpath(firstoption, pageName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementXpath)));
+        WebElement element = driver.findElement(By.xpath(elementXpath));
+        try{
+            element.click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(optionxpath)));
+
+        }catch (ElementClickInterceptedException r)
+        {
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("arguments[0].click()", element);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(optionxpath)));
+        }
+    }
+    public String getdatafromlocator(String elemName, String pageName)
+    {
+        wait = new WebDriverWait(driver, 50);
+        String elementXpath = DOMElements.getXpath(elemName, pageName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+        text = driver.findElement(By.xpath(elementXpath)).getText();
+        return text;
+    }
+    public void sendtext(String elemName, String pageName) throws InterruptedException {
+        wait = new WebDriverWait(driver, 50);
+        String elementXpath = DOMElements.getXpath(elemName, pageName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+        WebElement element = driver.findElement(By.xpath(elementXpath));
+        try{
+            Thread.sleep(2000);
+            element.sendKeys(text);
+            Thread.sleep(2000);
+            element.sendKeys(Keys.ENTER);
+        }catch (ElementClickInterceptedException | InterruptedException r)
+        {
+            Thread.sleep(2000);
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("document.getElementById('"+element+"').value='"+text+"';");
+            Thread.sleep(2000);
+            element.sendKeys(Keys.ENTER);
         }
     }
 }

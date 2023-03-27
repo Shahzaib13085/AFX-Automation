@@ -43,3 +43,15 @@ Viewdetails,/html/body/div[3]/div[2]/div/div/div/button[1],,AFXLOGIN
 PostJournalbutton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal/div/mat-card/div[2]/div/button[4],,AFXLOGIN
 OkPostJournal,/html/body/div[3]/div[2]/div/mat-dialog-container/base-dialog/mat-dialog-actions/button[2],,AFXLOGIN
 PostJournalToast,/html/body/div[4]/div,,AFXLOGIN
+HamBurger,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/app-top-nav/mat-toolbar/button,,AFXLOGIN
+JournalAppMenu,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/app-menu-list-item[1],,AFXLOGIN
+JournalManagement,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/app-menu-list-item[1]/div/app-menu-list-item[1],,AFXLOGIN
+Addjournal,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/div[2]/div[2]/button[2],,AFXLOGIN
+Categorydropdown,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal/div/mat-card/form/div[2]/div[1]/base-dropdown/div/div/div[2]/mat-form-field/div/div[1]/div[3],,AFXLOGIN
+CategorySearch,/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span/ngx-mat-select-search/div/input,,AFXLOGIN
+CategoryQAOption,/html/body/div[3]/div[2]/div/div/div/mat-option[2],,AFXLOGIN
+FilterButton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div/div/button,,AFXLOGIN
+StatusFilter,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div[2]/div/mat-card/div/div[1]/base-dropdown/div/div/div[2]/mat-form-field/div/div[1]/div[3],,AFXLOGIN
+StatusSearchInput,/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span/ngx-mat-select-search/div/input,,AFXLOGIN
+PostedButton,/html/body/div[3]/div[2]/div/div/div/mat-option[3],,AFXLOGIN
+ApplyFilterButton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div[2]/div/mat-card/div/div[9]/div[2]/button,,AFXLOGIN

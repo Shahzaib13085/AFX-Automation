@@ -31,7 +31,7 @@ Feature: General Ledger
     And User clicks "StatusFilter"
     And User clicks "PostedOption"
     And User clicks "ApplyFilterButton"
-    And User sends data into "SearchInputField" input field to assert "PostedJournal"
+    And User sends data into "SearchInputField" to assert "PostedJournal"
     Examples:
       | browser | Message |
       | Chrome  | Journal saved successfully! |

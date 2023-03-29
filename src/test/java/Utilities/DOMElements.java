@@ -36,17 +36,20 @@ public class DOMElements {
     public static String getXpath(String elementName, String pageName) {
         readFile();
         String elem;
-        for (String[] element : elementsList) {
-            if(element[0].equals(elementName) && element[3].equals(pageName)){
-                if(!element[1].isEmpty()){
-                    elem = element[1].trim();
-                    return elem;
-                }
-                else{
-                    elem = element[2].trim();
-                    return elem;
+        try {
+            for (String[] element : elementsList) {
+                if (element[0].equals(elementName) && element[3].equals(pageName)) {
+                    if (!element[1].isEmpty()) {
+                        elem = element[1].trim();
+                        return elem;
+                    } else {
+                        elem = element[2].trim();
+                        return elem;
+                    }
                 }
             }
+        } catch (Exception e) {
+            System.out.println("\nException caught");
         }
 
         for (String[] element : elementsList) {

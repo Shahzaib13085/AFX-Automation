@@ -53,5 +53,6 @@ CategoryQAOption,/html/body/div[3]/div[2]/div/div/div/mat-option[2],,AFXLOGIN
 FilterButton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div/div/button,,AFXLOGIN
 StatusFilter,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div[2]/div/mat-card/div/div[1]/base-dropdown/div/div/div[2]/mat-form-field/div/div[1]/div[3],,AFXLOGIN
 StatusSearchInput,/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span/ngx-mat-select-search/div/input,,AFXLOGIN
-PostedButton,/html/body/div[3]/div[2]/div/div/div/mat-option[3],,AFXLOGIN
+PostedOption,/html/body/div[3]/div[2]/div/div/div/mat-option[3],,AFXLOGIN
 ApplyFilterButton,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[2]/app-filter/div[2]/div/mat-card/div/div[9]/div[2]/button,,AFXLOGIN
+PostedJournal,/html/body/app-root/app-financials/app-financials-main/div/mat-sidenav-container/mat-sidenav-content/div/app-gl/app-journal-list/div/mat-card/div[3]/div/mat-table/mat-row/mat-cell[2],,AFXLOGIN

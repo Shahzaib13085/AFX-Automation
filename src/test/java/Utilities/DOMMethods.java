@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class DOMMethods {
     baseclassdriver sgp;
     public WebDriver driver = sgp.getDriver();
-    String text;
+    String text,text2,text3;
     WebDriverWait wait;
     String valueconfig;
     public DOMMethods(WebDriver driver) {
@@ -47,12 +47,12 @@ public class DOMMethods {
         WebElement element = driver.findElement(By.xpath(elementXpath));
         try{
             Thread.sleep(1500);
-            element.sendKeys(text);
+            element.sendKeys(valueconfig);
         }catch (ElementClickInterceptedException r)
         {
             Thread.sleep(1500);
             JavascriptExecutor js = (JavascriptExecutor)driver;
-            js.executeScript("document.getElementById('"+element+"').value='"+text+"';");
+            js.executeScript("document.getElementById('"+element+"').value='"+valueconfig+"';");
         }
 
     }
@@ -100,7 +100,7 @@ public class DOMMethods {
         text = driver.findElement(By.xpath(elementXpath)).getText();
         return text;
     }
-    public void sendtext(String elemName, String pageName) throws InterruptedException {
+    public void sendtext(String elemName,String assertrow ,String pageName) throws InterruptedException {
         wait = new WebDriverWait(driver, 50);
         String elementXpath = DOMElements.getXpath(elemName, pageName);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
@@ -110,6 +110,12 @@ public class DOMMethods {
             element.sendKeys(text);
             Thread.sleep(2000);
             element.sendKeys(Keys.ENTER);
+            wait = new WebDriverWait(driver, 50);
+            elementXpath = DOMElements.getXpath(assertrow, pageName);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+            text3 = driver.findElement(By.xpath(elementXpath)).getText();
+            assertTrue(text3.contains(text));
+
         }catch (ElementClickInterceptedException | InterruptedException r)
         {
             Thread.sleep(2000);
@@ -117,11 +123,20 @@ public class DOMMethods {
             js.executeScript("document.getElementById('"+element+"').value='"+text+"';");
             Thread.sleep(2000);
             element.sendKeys(Keys.ENTER);
+            wait = new WebDriverWait(driver, 50);
+            elementXpath = DOMElements.getXpath(assertrow, pageName);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+            text3 = driver.findElement(By.xpath(elementXpath)).getText();
+            assertTrue(text3.contains(text));
         }
     }
-    public void assertanymessage(String message)
+    public void assertanymessage(String message,String elemName, String pageName)
     {
-        assertTrue(text.contains(message));
+        wait = new WebDriverWait(driver, 50);
+        String elementXpath = DOMElements.getXpath(elemName, pageName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementXpath)));
+        text2 = driver.findElement(By.xpath(elementXpath)).getText();
+        assertTrue(text2.contains(message));
 //        try {
 //            assertTrue(text.contains(message));
 //            System.out.println("Asserted");

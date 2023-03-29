@@ -34,7 +34,8 @@ public class Steps {
 
 
     @When("User enters {string} in {string} field")
-    public void     user_enters_in_field(String string, String string2) throws InterruptedException, IOException {
+    public void user_enters_in_field(String string, String string2) throws InterruptedException, IOException {
+        DomMethods.getvaluesfromconfigfile(string);
         DomMethods.enterText(string, string2, "AFXLOGIN");
     }
 
@@ -54,19 +55,32 @@ public class Steps {
     }
 
 
-    @And("User gets data from {string}")
-    public void user_gets_data_from(String string) {
-      text  =  DomMethods.getdatafromlocator(string,"AFXLOGIN");
+//    @And("User gets data from {string}")
+//    public void user_gets_data_from(String string) {
+//      text  =  DomMethods.getdatafromlocator(string,"AFXLOGIN");
+//    }
+
+//    @And("User sends data into {string} input field")
+//    public void user_sends_data_into_input_field(String string) throws InterruptedException {
+//        DomMethods.sendtext(string,"AFXLOGIN");
+//    }
+    @And("User sends data into {string} input field to assert {string}")
+    public void user_sends_data_into_input_field_to_assert(String string, String string2) throws InterruptedException {
+        DomMethods.sendtext(string,string2,"AFXLOGIN");
     }
 
-    @And("User sends data into {string} input field")
-    public void user_sends_data_into_input_field(String string) throws InterruptedException {
-        DomMethods.sendtext(string,"AFXLOGIN");
-    }
+//    @And("User assert toast message {string} from {string}")
+//    public void user_assert_toast_message_from(String string, String string2) {
+//        DomMethods.assertanymessage(string,string2,"AFXLOGIN");
+//    }
 
-    @And("User assert toast message {string} from {string}")
-    public void user_assert_toast_message_from(String string, String string2) {
-        DomMethods.assertanymessage(string);
+    @Given("new {string} is generated")
+    public void new_is_generated(String string) {
+        text  =  DomMethods.getdatafromlocator(string,"AFXLOGIN");
+    }
+    @Given("Verify toast message {string} appears in {string}")
+    public void verify_toast_message_appears_in(String string, String string2) {
+        DomMethods.assertanymessage(string,string2,"AFXLOGIN");
     }
 
 

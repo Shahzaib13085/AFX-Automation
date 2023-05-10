@@ -1,5 +1,5 @@
 Email,//*[@id='email'],,AFXLOGIN
-Password,//*[@ng-reflect-name='passwordControl'],,AFXLOGIN
+Password,//*[@formcontrolname='passwordControl'],,AFXLOGIN
 LoginButton,//*[@id='login'],,AFXLOGIN
 Remittance,/html/body/app-root/app-financials/app-financials-main/app-header/div/div/div/mat-tab-group/mat-tab-header/div/div/div/div[6]/div,,AFXLOGIN
 ForeignCurrency,/html/body/app-root/app-remittance/div/app-remittance-header/div[2]/mat-toolbar-row/mat-nav-list/app-menu-list-item[8],,AFXLOGIN
